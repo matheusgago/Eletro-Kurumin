@@ -103,4 +103,23 @@ Aceda à aplicação no seu navegador:
 <img width="569" height="598" alt="image" src="https://github.com/user-attachments/assets/fe2af263-b0e3-4dc2-a4b7-7c4e6888deba" />
 
 
+---
+## 8.Postman
+<img width="645" height="775" alt="image" src="https://github.com/user-attachments/assets/7e976f02-6b7f-4ca4-86a7-741bac8e0e56" />
+---
+<img width="804" height="878" alt="image" src="https://github.com/user-attachments/assets/2b63d6f0-1e4b-43ca-8adf-59cff3744dbd" />
+<img width="703" height="326" alt="image" src="https://github.com/user-attachments/assets/32e1bd53-2e3c-45aa-beaa-1cea5484f721" />
+## tem todos os itens.
+---
+<img width="794" height="802" alt="image" src="https://github.com/user-attachments/assets/fe95a976-fe61-48aa-8b4b-786a17fee304" />
+<img width="716" height="847" alt="image" src="https://github.com/user-attachments/assets/aac10f94-82d0-41f4-9e2b-0c98b03425c1" />
+
+---
+ <img width="779" height="790" alt="image" src="https://github.com/user-attachments/assets/ded0e784-53ca-4dfa-924f-1ee963dd220b" />
+
+
+
+
+
+
 
