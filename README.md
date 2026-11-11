@@ -61,7 +61,8 @@ npm install
 npm start
 ```
 *(Ou `npm run dev` para desenvolvimento com recarregamento automático).*
-
+🥇 use: npm init -y
+npm install express mysql2
 Aceda à aplicação no seu navegador:  
 👉 **[http://127.0.0.1:3000](http://127.0.0.1:3000)**
 
@@ -71,3 +72,35 @@ Aceda à aplicação no seu navegador:
 
 - **E-mail:** `admin@kurumin.com`
 - **Palavra-passe:** `admin123`
+
+---
+
+## 5. Tabela ( banco) 
+<img width="464" height="717" alt="image" src="https://github.com/user-attachments/assets/0d669328-7918-4c1f-9bbc-e04dc3d57138" />
+
+---
+
+
+## 6. HEIDESQL
+<img width="276" height="111" alt="image" src="https://github.com/user-attachments/assets/e9ac698b-bf05-4e04-be94-e113aea640fd" />
+
+<img width="723" height="99" alt="image" src="https://github.com/user-attachments/assets/a69c7f2b-58c6-4c29-97ce-b15450711ad9" />
+
+---
+
+##7. Testes
+<img width="1247" height="619" alt="image" src="https://github.com/user-attachments/assets/1112d876-cf7a-450f-803f-2a024927819b" />
+---
+<img width="860" height="617" alt="image" src="https://github.com/user-attachments/assets/37e0a7c0-8be6-4bbf-99b5-93ed8a900f7a" />
+---
+
+<img width="693" height="675" alt="image" src="https://github.com/user-attachments/assets/19cded4f-605d-4aba-961c-cffefd275392" />
+
+---
+<img width="1337" height="811" alt="image" src="https://github.com/user-attachments/assets/555105a6-4606-40c0-a954-d4778a48a987" />
+
+---
+<img width="569" height="598" alt="image" src="https://github.com/user-attachments/assets/fe2af263-b0e3-4dc2-a4b7-7c4e6888deba" />
+
+
+
