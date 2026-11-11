@@ -1,0 +1,33 @@
+{
+  "name": "eletro-kurumin",
+  "version": "1.0.0",
+  "description": "Sistema de Controlo de Stock de Componentes Eletrónicos - Eletro Kurumin",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "eletro-kurumin",
+    "stock",
+    "componentes-eletronicos",
+    "mysql",
+    "heidisql",
+    "nodejs",
+    "express"
+  ],
+  "author": "Eletro Kurumin",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.22.3",
+    "express-session": "^1.18.0",
+    "mysql2": "^3.24.6"
+  },
+  "directories": {
+    "test": "tests"
+  }
+}

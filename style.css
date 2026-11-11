@@ -1,0 +1,72 @@
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #2b2f38;
+}
+
+.navbar-brand {
+    letter-spacing: -0.5px;
+}
+
+.avatar-icon {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.table thead th {
+    font-size: 0.78rem;
+    letter-spacing: 0.6px;
+    font-weight: 700;
+}
+
+.font-monospace {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+}
+
+.badge {
+    font-weight: 600;
+}
+
+.btn,
+.nav-link,
+.card {
+    transition: all 0.2s ease-in-out;
+}
+
+.card {
+    border-radius: 0.75rem;
+}
+
+@media print {
+    body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    nav.navbar,
+    footer,
+    .d-print-none,
+    .btn,
+    .breadcrumb {
+        display: none !important;
+    }
+
+    .card {
+        box-shadow: none !important;
+        border: 1px solid #dee2e6 !important;
+        margin-bottom: 1.5rem !important;
+        page-break-inside: avoid;
+    }
+
+    .table {
+        border-color: #333 !important;
+    }
+
+    .table-dark {
+        background-color: #333 !important;
+        color: #fff !important;
+    }
+}
