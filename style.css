@@ -1,48 +1,387 @@
+/* ==============================================================================
+   ELETRO KURUMIN - DESIGN SYSTEM EXCLUSIVO (UI/UX PREMIUM)
+   ============================================================================== */
+
+:root {
+    --ek-primary: #2563eb;
+    --ek-primary-dark: #1d4ed8;
+    --ek-primary-light: #eff6ff;
+    --ek-accent: #f59e0b;
+    --ek-accent-dark: #d97706;
+    --ek-accent-glow: rgba(245, 158, 11, 0.25);
+
+    --ek-bg: #f8fafc;
+    --ek-surface: #ffffff;
+    --ek-surface-hover: #f1f5f9;
+    --ek-border: #e2e8f0;
+    --ek-border-subtle: #edf2f7;
+
+    --ek-text: #0f172a;
+    --ek-text-muted: #64748b;
+    --ek-text-light: #94a3b8;
+
+    --ek-success: #10b981;
+    --ek-success-bg: #ecfdf5;
+    --ek-warning: #f59e0b;
+    --ek-warning-bg: #fffbeb;
+    --ek-danger: #ef4444;
+    --ek-danger-bg: #fef2f2;
+
+    --ek-radius-sm: 8px;
+    --ek-radius: 14px;
+    --ek-radius-lg: 20px;
+
+    --ek-shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+    --ek-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+    --ek-shadow-hover: 0 20px 30px -10px rgba(15, 23, 42, 0.12);
+}
+
+/* 1. Reset & Tipografia Global */
 body {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    color: #2b2f38;
-}
-
-.navbar-brand {
-    letter-spacing: -0.5px;
-}
-
-.avatar-icon {
-    width: 68px;
-    height: 68px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
-
-.table thead th {
-    font-size: 0.78rem;
-    letter-spacing: 0.6px;
-    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--ek-bg);
+    color: var(--ek-text);
+    letter-spacing: -0.01em;
+    background-image:
+        radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.04) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.04) 0px, transparent 50%);
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
 }
 
 .font-monospace {
-    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+    font-family: 'JetBrains Mono', SFMono-Regular, Consolas, monospace !important;
 }
 
-.badge {
+/* 2. Barra de Navegação Futurista / Tech Glass */
+nav.navbar {
+    background: rgba(11, 15, 25, 0.92) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.navbar-brand {
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-brand i {
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6));
+    animation: pulse-glow 3s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.5));
+        transform: scale(1);
+    }
+
+    50% {
+        filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.9));
+        transform: scale(1.04);
+    }
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 0.92rem;
+    padding: 0.55rem 1rem !important;
+    border-radius: var(--ek-radius-sm);
+    color: #cbd5e1 !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-1px);
+}
+
+.nav-link.active {
+    color: #ffffff !important;
+    background: rgba(37, 99, 235, 0.25) !important;
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.25);
+}
+
+.nav-link.text-info.active {
+    background: rgba(6, 182, 212, 0.2) !important;
+    border-color: rgba(6, 182, 212, 0.4) !important;
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.25) !important;
+}
+
+/* 3. Cards Modernos com Bordas Suaves */
+.card {
+    background: var(--ek-surface);
+    border: 1px solid var(--ek-border);
+    border-radius: var(--ek-radius);
+    box-shadow: var(--ek-shadow);
+    transition: all 0.25s ease;
+}
+
+.card-header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--ek-border-subtle);
+    padding: 1.1rem 1.5rem;
+    border-top-left-radius: var(--ek-radius) !important;
+    border-top-right-radius: var(--ek-radius) !important;
+}
+
+/* 4. Barra de Pesquisa e Filtros (Toolbar Flutuante) */
+.card-body form.row {
+    background: #ffffff;
+}
+
+.input-group-text {
+    border-color: var(--ek-border);
+    border-radius: var(--ek-radius-sm);
+}
+
+.form-control,
+.form-select {
+    border: 1.5px solid var(--ek-border);
+    border-radius: var(--ek-radius-sm);
+    padding: 0.65rem 0.95rem;
+    font-size: 0.92rem;
+    transition: all 0.2s ease;
+    color: var(--ek-text);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--ek-primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    outline: none;
+}
+
+/* 5. Tabela Exclusiva com Design de Alta Densidade */
+.table {
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table thead th {
+    background: #f8fafc;
+    color: #475569;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    padding: 1rem 1.1rem;
+    border-top: none;
+    border-bottom: 1px solid var(--ek-border);
+}
+
+.table tbody tr {
+    transition: all 0.15s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f5f9 !important;
+}
+
+.table tbody td {
+    padding: 1rem 1.1rem;
+    border-bottom: 1px solid var(--ek-border-subtle);
+    vertical-align: middle;
+}
+
+/* 6. Tags de Categoria Exclusivas com Cores Inteligentes */
+.badge.bg-light.text-primary.border {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%) !important;
+    color: #1e40af !important;
+    border: 1px solid #bfdbfe !important;
     font-weight: 600;
+    padding: 0.45rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
 }
 
-.btn,
-.nav-link,
-.card {
-    transition: all 0.2s ease-in-out;
+/* 7. Status de Stock com Indicador Fluido (Pill com Luz) */
+.badge-stock {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.45rem 0.8rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 700;
 }
 
-.card {
-    border-radius: 0.75rem;
+.badge-stock-ok {
+    background-color: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
 }
 
+.badge-stock-ok::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #10b981;
+    box-shadow: 0 0 8px #10b981;
+}
+
+.badge-stock-low {
+    background-color: #fffbeb;
+    color: #92400e;
+    border: 1px solid #fde68a;
+}
+
+.badge-stock-low::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #f59e0b;
+    box-shadow: 0 0 8px #f59e0b;
+}
+
+.badge-stock-out {
+    background-color: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.badge-stock-out::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #ef4444;
+    box-shadow: 0 0 8px #ef4444;
+}
+
+/* 8. Botões de Ação com Estilo App Moderno */
+.btn {
+    border-radius: var(--ek-radius-sm);
+    font-weight: 600;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    border: none;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+    transform: translateY(-1px);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    border: none;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+}
+
+.btn-warning:hover {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* Botões de Ação na Tabela */
+.btn-group-sm>.btn {
+    padding: 0.4rem 0.65rem;
+    border-radius: 8px !important;
+    margin: 0 2px;
+}
+
+.btn-outline-success {
+    background: #ecfdf5;
+    border-color: #a7f3d0;
+    color: #059669;
+}
+
+.btn-outline-success:hover {
+    background: #10b981;
+    border-color: #10b981;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+}
+
+.btn-outline-primary {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    color: #2563eb;
+}
+
+.btn-outline-primary:hover {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.btn-outline-danger {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #dc2626;
+}
+
+.btn-outline-danger:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+}
+
+/* 9. Cards de Métricas e Relatórios */
+.card.bg-primary {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%) !important;
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4) !important;
+}
+
+.card.bg-dark {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.4) !important;
+}
+
+/* 10. Modais Modernos com Backdrop Blur */
+.modal-content {
+    border-radius: var(--ek-radius-lg);
+    border: none;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal-header {
+    padding: 1.25rem 1.5rem;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+/* 11. Rodapé Corporativo */
+footer {
+    background: #ffffff !important;
+    border-top: 1px solid var(--ek-border);
+}
+
+/* 12. Otimização de Impressão */
 @media print {
     body {
-        background-color: #ffffff !important;
+        background: #ffffff !important;
         color: #000000 !important;
     }
 
@@ -56,17 +395,7 @@ body {
 
     .card {
         box-shadow: none !important;
-        border: 1px solid #dee2e6 !important;
-        margin-bottom: 1.5rem !important;
-        page-break-inside: avoid;
-    }
-
-    .table {
-        border-color: #333 !important;
-    }
-
-    .table-dark {
-        background-color: #333 !important;
-        color: #fff !important;
+        border: 1px solid #cbd5e1 !important;
+        break-inside: avoid;
     }
 }
