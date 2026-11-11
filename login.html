@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Iniciar Sessão - Eletro Kurumin{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center my-auto py-5">
+    <div class="col-md-6 col-lg-4">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-body p-4 p-md-5">
+                <div class="text-center mb-4">
+                    <div class="avatar-icon bg-warning-subtle text-warning mx-auto mb-3">
+                        <i class="bi bi-shield-lock-fill fs-1 text-warning"></i>
+                    </div>
+                    <h3 class="fw-bold mb-1">Acesso ao Stock</h3>
+                    <p class="text-muted small">Eletro Kurumin Componentes Eletrónicos</p>
+                </div>
+
+                <form method="POST" action="{{ url_for('login', next=request.args.get('next')) }}" novalidate>
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold">E-mail Corporativo</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white"><i class="bi bi-envelope text-muted"></i></span>
+                            <input type="email" class="form-control" id="email" name="email" 
+                                   value="{{ email or '' }}" placeholder="exemplo@kurumin.com" required autofocus>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="senha" class="form-label fw-semibold">Palavra-passe</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-white"><i class="bi bi-key text-muted"></i></span>
+                            <input type="password" class="form-control" id="senha" name="senha" 
+                                   placeholder="Introduza a sua palavra-passe" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-warning w-100 fw-bold py-2 shadow-sm">
+                        <i class="bi bi-box-arrow-in-right me-1"></i> Entrar no Sistema
+                    </button>
+                </form>
+
+                <div class="card bg-light border mt-4 p-3 rounded-3 small">
+                    <div class="d-flex align-items-center gap-2 mb-1 text-dark fw-semibold">
+                        <i class="bi bi-info-circle text-primary"></i> Utilizador Padrão de Teste (HeidiSQL):
+                    </div>
+                    <div><strong>E-mail:</strong> <code class="text-primary">admin@kurumin.com</code></div>
+                    <div><strong>Palavra-passe:</strong> <code class="text-primary">admin123</code></div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <span class="text-muted small">Novo funcionário?</span>
+                    <a href="{{ url_for('registo') }}" class="small text-decoration-none fw-bold ms-1">Criar conta</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Registo de Utilizador - Eletro Kurumin{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center my-auto py-4">
+    <div class="col-md-7 col-lg-5">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-body p-4 p-md-5">
+                <div class="text-center mb-4">
+                    <div class="avatar-icon bg-primary-subtle text-primary mx-auto mb-3">
+                        <i class="bi bi-person-plus-fill fs-1"></i>
+                    </div>
+                    <h3 class="fw-bold mb-1">Novo Utilizador</h3>
+                    <p class="text-muted small">Crie a sua conta para gerir o inventário da Eletro Kurumin</p>
+                </div>
+
+                <form method="POST" action="{{ url_for('registo') }}">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label fw-semibold">Nome Completo</label>
+                        <input type="text" class="form-control" id="nome" name="nome" 
+                               value="{{ nome or '' }}" placeholder="Ex: Carlos Silva" required autofocus>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-semibold">E-mail Corporativo</label>
+                        <input type="email" class="form-control" id="email" name="email" 
+                               value="{{ email or '' }}" placeholder="carlos.silva@kurumin.com" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="senha" class="form-label fw-semibold">Palavra-passe (Mínimo 6 caracteres)</label>
+                        <input type="password" class="form-control" id="senha" name="senha" 
+                               placeholder="••••••••" minlength="6" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="confirmar_senha" class="form-label fw-semibold">Confirmar Palavra-passe</label>
+                        <input type="password" class="form-control" id="confirmar_senha" name="confirmar_senha" 
+                               placeholder="••••••••" minlength="6" required>
+                    </div>
+
+                    <div class="alert alert-secondary py-2 small mb-4">
+                        <i class="bi bi-shield-check text-success me-1"></i>
+                        A palavra-passe será cifrada na base de dados (HeidiSQL) através de hash criptográfico seguro (PBKDF2 com Salt).
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 fw-bold py-2 shadow-sm">
+                        <i class="bi bi-check2-circle me-1"></i> Concluir Registo
+                    </button>
+                </form>
+
+                <div class="text-center mt-4">
+                    <span class="text-muted small">Já tem conta?</span>
+                    <a href="{{ url_for('login') }}" class="small text-decoration-none fw-bold ms-1">Iniciar sessão</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

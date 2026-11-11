@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Eletro Kurumin - Controlo de Stock{% endblock %}</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Fonte Google Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Folha de estilo personalizada -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+    <!-- BARRA DE NAVEGAÇÃO -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-warning" href="{{ url_for('listar_componentes') if current_user else url_for('login') }}">
+                <i class="bi bi-cpu-fill fs-4 text-warning"></i>
+                <span>Eletro <span class="text-white">Kurumin</span></span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navKurumin" aria-controls="navKurumin" aria-expanded="false" aria-label="Navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navKurumin">
+                {% if current_user %}
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint in ['listar_componentes', 'editar_componente'] %}active fw-semibold{% endif %}" href="{{ url_for('listar_componentes') }}">
+                            <i class="bi bi-box-seam me-1"></i> Stock de Componentes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'criar_componente' %}active fw-semibold{% endif %}" href="{{ url_for('criar_componente') }}">
+                            <i class="bi bi-plus-circle me-1"></i> Novo Componente
+                        </a>
+                    </li>
+                    <!-- Relatório apresentado no fim do sistema como última funcionalidade de valor -->
+                    <li class="nav-item">
+                        <a class="nav-link text-info {% if request.endpoint == 'relatorios' %}active fw-bold{% endif %}" href="{{ url_for('relatorios') }}">
+                            <i class="bi bi-graph-up-arrow me-1"></i> Relatório de Inventário & Valores
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-3">
+                    <span class="text-light small d-none d-md-inline">
+                        <i class="bi bi-person-circle text-warning me-1"></i>
+                        <strong>{{ current_user.nome }}</strong>
+                    </span>
+                    <a href="{{ url_for('logout') }}" class="btn btn-outline-danger btn-sm px-3" title="Terminar Sessão">
+                        <i class="bi bi-box-arrow-right me-1"></i> Sair
+                    </a>
+                </div>
+                {% else %}
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ url_for('login') }}">
+                            <i class="bi bi-box-arrow-in-right me-1"></i> Iniciar Sessão
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="{{ url_for('registo') }}">
+                            <i class="bi bi-person-plus me-1"></i> Criar Conta
+                        </a>
+                    </li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- ÁREA PRINCIPAL COM FEEDBACK EM FLASH MESSAGES -->
+    <main class="flex-grow-1 py-4">
+        <div class="container-fluid px-4">
+            <!-- Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="row justify-content-center mb-3">
+                        <div class="col-12">
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }} alert-dismissible fade show shadow-sm d-flex align-items-center gap-2" role="alert">
+                                    {% if category == 'success' %}
+                                        <i class="bi bi-check-circle-fill fs-5 text-success"></i>
+                                    {% elif category == 'danger' %}
+                                        <i class="bi bi-exclamation-triangle-fill fs-5 text-danger"></i>
+                                    {% elif category == 'warning' %}
+                                        <i class="bi bi-exclamation-circle-fill fs-5 text-warning"></i>
+                                    {% else %}
+                                        <i class="bi bi-info-circle-fill fs-5 text-info"></i>
+                                    {% endif %}
+                                    <div class="flex-grow-1">{{ message }}</div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- RODAPÉ CORPORATIVO -->
+    <footer class="bg-white border-top py-3 mt-auto text-muted small">
+        <div class="container-fluid px-4 d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <div>
+                <strong>Eletro Kurumin</strong> &copy; 2026 — Controlo de Stock de Componentes Eletrónicos.
+            </div>
+            <div>
+                <span class="badge bg-secondary-subtle text-secondary border">HeidiSQL (MySQL/MariaDB)</span>
+                <span class="badge bg-primary-subtle text-primary border ms-1">Python Flask</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
+
